@@ -1,0 +1,23 @@
+.holder{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    /* margin-top: 120px; */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 50px 0;
+    margin-bottom: 30px;
+}
+
+.holder-img{
+    background-color: aqua;
+    width: 45%;
+    height: auto;
+}
+
+.project-cont{
+    width: 50%;
+    height: auto;
+    /* background-color: red; */
+}
