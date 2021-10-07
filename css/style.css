@@ -5934,7 +5934,7 @@ p.intro {
 	background: rgba(20, 20, 20, .4);
 }
 .overlay-bg.t50{
-	background: rgba(20, 20, 20, .5);
+	background: rgba(20, 20, 20, 0.774);
 }
 .overlay-bg.t70{
 	background: rgba(20, 20, 20, .7);
