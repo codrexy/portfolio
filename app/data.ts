@@ -10,12 +10,15 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/codrexy",
   github: "https://github.com/codrexy",
   resume: "/Collins-Vincent-Resume.pdf",
+  whatsapp: "https://wa.me/2347041528380",
+  phone: "+234 704 152 8380",
 };
 
 export const stats = [
-  { value: "8", label: "years shipping web and mobile" },
-  { value: "15", label: "people led on one product team" },
-  { value: "12+", label: "client products delivered" },
+  { value: 8, suffix: "", label: "years shipping web and mobile" },
+  { value: 15, suffix: "", label: "people led on one product team" },
+  { value: 12, suffix: "+", label: "client products delivered" },
+  { value: 40, suffix: "%", label: "faster dashboard interactions at Puplar" },
 ];
 
 export type Product = {
@@ -135,6 +138,46 @@ export const experience: Role[] = [
       "Taught web development fundamentals to training cohorts and reviewed student projects.",
     ],
   },
+];
+
+export const services = [
+  {
+    title: "Payment and fintech products",
+    body: "Wallets, payouts, KYC onboarding, rate feeds and transaction histories that hold up under real money.",
+    tags: ["Multi-currency", "KYC", "Payouts"],
+  },
+  {
+    title: "Web applications",
+    body: "Fast, server-rendered dashboards and marketing sites in React and Next.js that work on low-bandwidth connections.",
+    tags: ["Next.js", "React", "TypeScript"],
+  },
+  {
+    title: "Mobile apps",
+    body: "One React Native codebase shipped to the App Store and Play Store, with push, in-app payments and offline caching.",
+    tags: ["React Native", "Expo", "OTA updates"],
+  },
+  {
+    title: "APIs and backend",
+    body: "NestJS and Express services on PostgreSQL or MongoDB, with the tests that keep regressions out of production.",
+    tags: ["NestJS", "PostgreSQL", "REST"],
+  },
+  {
+    title: "Release pipelines",
+    body: "CI/CD, staged rollouts and shared component libraries that turn weeks of project setup into days.",
+    tags: ["CI/CD", "Design systems"],
+  },
+  {
+    title: "Technical leadership",
+    body: "Scoping, roadmaps, code review and on-call practice for cross-functional teams of 5 to 15.",
+    tags: ["Mentoring", "Agile"],
+  },
+];
+
+export const process = [
+  { title: "Discover", body: "Understand the users, the money flow and the constraints before any code is written." },
+  { title: "Design", body: "Agree screens, data models and API contracts so web, mobile and backend move together." },
+  { title: "Build", body: "Ship in small reviewed increments behind automated tests and preview deployments." },
+  { title: "Release and support", body: "Staged rollouts, monitoring and fast fixes after launch, not a hand-off and goodbye." },
 ];
 
 export const skills = [

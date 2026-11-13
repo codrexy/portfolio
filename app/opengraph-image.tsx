@@ -1,23 +1,14 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Collins Vincent — Senior full-stack engineer in Port Harcourt, Nigeria";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-function rosette(cx: number, cy: number, R: number, r: number, d: number, s: number) {
-  const steps = 2400;
-  const turns = 41;
-  let path = "";
-  for (let i = 0; i <= steps; i++) {
-    const t = (i / steps) * Math.PI * 2 * turns;
-    const x = (R - r) * Math.cos(t) + d * Math.cos(((R - r) / r) * t);
-    const y = (R - r) * Math.sin(t) - d * Math.sin(((R - r) / r) * t);
-    path += `${i ? "L" : "M"}${(cx + x * s).toFixed(1)} ${(cy + y * s).toFixed(1)}`;
-  }
-  return path;
-}
-
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const photo = await readFile(join(process.cwd(), "public/images/portrait.jpg"));
+  const src = `data:image/jpeg;base64,${photo.toString("base64")}`;
   return new ImageResponse(
     (
       <div
@@ -25,31 +16,45 @@ export default function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#EEF2EC",
-          color: "#13272A",
-          padding: 72,
-          position: "relative",
+          background: "linear-gradient(135deg, #08120F 0%, #0F2420 60%, #1A1830 100%)",
+          color: "#E8EFE9",
+          padding: 64,
+          alignItems: "center",
         }}
       >
-        <svg
-          width="560"
-          height="560"
-          viewBox="0 0 400 400"
-          style={{ position: "absolute", right: -150, top: 35 }}
+        <div style={{ display: "flex", flexDirection: "column", width: 660 }}>
+          <div style={{ display: "flex", fontSize: 22, color: "#7FE0B5" }}>● Open to remote and hybrid roles</div>
+          <div style={{ fontSize: 104, lineHeight: 1, marginTop: 24, letterSpacing: -3, fontWeight: 700 }}>Collins</div>
+          <div
+            style={{
+              fontSize: 104,
+              lineHeight: 1,
+              letterSpacing: -3,
+              fontWeight: 700,
+              backgroundImage: "linear-gradient(100deg, #7FE0B5, #A594F0, #E6C37C)",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            Vincent
+          </div>
+          <div style={{ fontSize: 32, color: "#9BB0A6", marginTop: 28, lineHeight: 1.35 }}>
+            Senior full-stack engineer · Payments and fintech · React, Next.js, React Native, NestJS
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            marginLeft: "auto",
+            width: 400,
+            height: 500,
+            borderRadius: "200px 200px 28px 28px",
+            overflow: "hidden",
+            border: "2px solid rgba(255,255,255,0.2)",
+          }}
         >
-          <path d={rosette(200, 200, 96, 41, 62, 1.55)} fill="none" stroke="#A9C3B5" strokeWidth="0.7" />
-          <path d={rosette(200, 200, 70, 33, 30, 1.3)} fill="none" stroke="#5E4F96" strokeWidth="0.6" />
-          <circle cx="200" cy="200" r="17" fill="#EEF2EC" stroke="#1F4D3D" strokeWidth="1.2" />
-        </svg>
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", width: 680 }}>
-          <div style={{ fontSize: 96, lineHeight: 1, fontFamily: "serif", letterSpacing: -2 }}>Collins Vincent</div>
-          <div style={{ fontSize: 38, color: "#2E6A55", marginTop: 28, fontWeight: 700 }}>
-            Senior full-stack engineer
-          </div>
-          <div style={{ fontSize: 28, color: "#3D5155", marginTop: 20, lineHeight: 1.4 }}>
-            Payments and fintech products with React, Next.js, React Native, Node.js and NestJS.
-          </div>
-          <div style={{ fontSize: 24, color: "#5E4F96", marginTop: 36 }}>Port Harcourt, Nigeria · Open to remote</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} width={400} height={500} style={{ objectFit: "cover", objectPosition: "30% 30%" }} alt="" />
         </div>
       </div>
     ),

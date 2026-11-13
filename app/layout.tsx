@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource/gloock/400.css";
 import "@fontsource-variable/figtree";
+import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 import { profile } from "./data";
 import { seo, siteUrl } from "./site";
@@ -65,8 +66,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#EEF2EC",
-  colorScheme: "light",
+  themeColor: "#08120F",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };

@@ -38,7 +38,7 @@ export default function JsonLd() {
         jobTitle: "Senior Full-Stack Engineer",
         description: profile.summary,
         url: siteUrl,
-        image: `${siteUrl}/opengraph-image`,
+        image: `${siteUrl}/images/portrait.jpg`,
         email: `mailto:${profile.email}`,
         address: {
           "@type": "PostalAddress",
