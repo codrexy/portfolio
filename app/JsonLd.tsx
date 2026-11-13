@@ -47,7 +47,7 @@ export default function JsonLd() {
           addressCountry: "NG",
         },
         nationality: { "@type": "Country", name: "Nigeria" },
-        sameAs: [profile.linkedin, profile.github, "https://vincentcollins.netlify.app"],
+        sameAs: [profile.linkedin, profile.github],
         worksFor: { "@type": "Organization", name: experience[0].company },
         alumniOf: { "@type": "CollegeOrUniversity", name: education.school },
         hasCredential: {

@@ -5,7 +5,8 @@ function resolveSiteUrl() {
   if (explicit) return explicit.replace(/\/$/, "");
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
   if (vercel) return `https://${vercel}`;
-  return "http://localhost:3000";
+  if (process.env.NODE_ENV === "development") return "http://localhost:3000";
+  return "https://collins-vincent.vercel.app";
 }
 
 export const siteUrl = resolveSiteUrl();
